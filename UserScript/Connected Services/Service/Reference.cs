@@ -10,7 +10,115 @@
 
 namespace UserScript.Service {
     using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SSC_TriColorLightOptions", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Core")]
+    public enum SSC_TriColorLightOptions : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Red = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Yellow = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Green = 2,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SSC_PresetPositionInfo", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Core")]
+    [System.SerializableAttribute()]
+    public partial class SSC_PresetPositionInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AxisField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UserScript.Service.SSC_MoveMode ModeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OrderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SpeedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Axis {
+            get {
+                return this.AxisField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AxisField, value) != true)) {
+                    this.AxisField = value;
+                    this.RaisePropertyChanged("Axis");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UserScript.Service.SSC_MoveMode Mode {
+            get {
+                return this.ModeField;
+            }
+            set {
+                if ((this.ModeField.Equals(value) != true)) {
+                    this.ModeField = value;
+                    this.RaisePropertyChanged("Mode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Order {
+            get {
+                return this.OrderField;
+            }
+            set {
+                if ((this.OrderField.Equals(value) != true)) {
+                    this.OrderField = value;
+                    this.RaisePropertyChanged("Order");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Speed {
+            get {
+                return this.SpeedField;
+            }
+            set {
+                if ((this.SpeedField.Equals(value) != true)) {
+                    this.SpeedField = value;
+                    this.RaisePropertyChanged("Speed");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SSC_MoveMode", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Core")]
@@ -24,17 +132,6 @@ namespace UserScript.Service {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SSC_IOTypeEnum", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Core")]
-    public enum SSC_IOTypeEnum : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Input = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Output = 1,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SSC_IOStatusEnum", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Core")]
     public enum SSC_IOStatusEnum : int {
         
@@ -43,6 +140,17 @@ namespace UserScript.Service {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Enabled = 1,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SSC_IOTypeEnum", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Core")]
+    public enum SSC_IOTypeEnum : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Input = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Output = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -67,22 +175,727 @@ namespace UserScript.Service {
     public enum SSC_PMRangeEnum : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Range1 = 1,
+        RANGE1 = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Range2 = 2,
+        RANGE2 = 2,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Range3 = 3,
+        RANGE3 = 3,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Range4 = 4,
+        RANGE4 = 4,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Range5 = 5,
+        RANGE5 = 5,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Range6 = 6,
+        RANGE6 = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AUTO = 7,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReadPresetPositionResponse", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Responses")]
+    [System.SerializableAttribute()]
+    public partial class ReadPresetPositionResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AbsPositionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AxisField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsFastMoveModeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsMovableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LMCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UserScript.Service.SSC_MoveMode ModeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double RelPositionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SpeedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double AbsPosition {
+            get {
+                return this.AbsPositionField;
+            }
+            set {
+                if ((this.AbsPositionField.Equals(value) != true)) {
+                    this.AbsPositionField = value;
+                    this.RaisePropertyChanged("AbsPosition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Axis {
+            get {
+                return this.AxisField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AxisField, value) != true)) {
+                    this.AxisField = value;
+                    this.RaisePropertyChanged("Axis");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsFastMoveMode {
+            get {
+                return this.IsFastMoveModeField;
+            }
+            set {
+                if ((this.IsFastMoveModeField.Equals(value) != true)) {
+                    this.IsFastMoveModeField = value;
+                    this.RaisePropertyChanged("IsFastMoveMode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsMovable {
+            get {
+                return this.IsMovableField;
+            }
+            set {
+                if ((this.IsMovableField.Equals(value) != true)) {
+                    this.IsMovableField = value;
+                    this.RaisePropertyChanged("IsMovable");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LMC {
+            get {
+                return this.LMCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LMCField, value) != true)) {
+                    this.LMCField = value;
+                    this.RaisePropertyChanged("LMC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UserScript.Service.SSC_MoveMode Mode {
+            get {
+                return this.ModeField;
+            }
+            set {
+                if ((this.ModeField.Equals(value) != true)) {
+                    this.ModeField = value;
+                    this.RaisePropertyChanged("Mode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double RelPosition {
+            get {
+                return this.RelPositionField;
+            }
+            set {
+                if ((this.RelPositionField.Equals(value) != true)) {
+                    this.RelPositionField = value;
+                    this.RaisePropertyChanged("RelPosition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Speed {
+            get {
+                return this.SpeedField;
+            }
+            set {
+                if ((this.SpeedField.Equals(value) != true)) {
+                    this.SpeedField = value;
+                    this.RaisePropertyChanged("Speed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlignmentAreaScanResponse", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Responses")]
+    [System.SerializableAttribute()]
+    public partial class AlignmentAreaScanResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AxisHorizontalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AxisVeritcalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LMCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakPositionHorizontalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakPositionVeritcalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AxisHorizontal {
+            get {
+                return this.AxisHorizontalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AxisHorizontalField, value) != true)) {
+                    this.AxisHorizontalField = value;
+                    this.RaisePropertyChanged("AxisHorizontal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AxisVeritcal {
+            get {
+                return this.AxisVeritcalField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AxisVeritcalField, value) != true)) {
+                    this.AxisVeritcalField = value;
+                    this.RaisePropertyChanged("AxisVeritcal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LMC {
+            get {
+                return this.LMCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LMCField, value) != true)) {
+                    this.LMCField = value;
+                    this.RaisePropertyChanged("LMC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakPositionHorizontal {
+            get {
+                return this.PeakPositionHorizontalField;
+            }
+            set {
+                if ((this.PeakPositionHorizontalField.Equals(value) != true)) {
+                    this.PeakPositionHorizontalField = value;
+                    this.RaisePropertyChanged("PeakPositionHorizontal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakPositionVeritcal {
+            get {
+                return this.PeakPositionVeritcalField;
+            }
+            set {
+                if ((this.PeakPositionVeritcalField.Equals(value) != true)) {
+                    this.PeakPositionVeritcalField = value;
+                    this.RaisePropertyChanged("PeakPositionVeritcal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakValue {
+            get {
+                return this.PeakValueField;
+            }
+            set {
+                if ((this.PeakValueField.Equals(value) != true)) {
+                    this.PeakValueField = value;
+                    this.RaisePropertyChanged("PeakValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlignmentNDResponse", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Responses")]
+    [System.SerializableAttribute()]
+    public partial class AlignmentNDResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UserScript.Service.Alignment1DResponse[] Alignment1DResponseCollectionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UserScript.Service.Alignment1DResponse[] Alignment1DResponseCollection {
+            get {
+                return this.Alignment1DResponseCollectionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Alignment1DResponseCollectionField, value) != true)) {
+                    this.Alignment1DResponseCollectionField = value;
+                    this.RaisePropertyChanged("Alignment1DResponseCollection");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Alignment1DResponse", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Responses")]
+    [System.SerializableAttribute()]
+    public partial class Alignment1DResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AxisField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LMCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakPositionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Axis {
+            get {
+                return this.AxisField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AxisField, value) != true)) {
+                    this.AxisField = value;
+                    this.RaisePropertyChanged("Axis");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LMC {
+            get {
+                return this.LMCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LMCField, value) != true)) {
+                    this.LMCField = value;
+                    this.RaisePropertyChanged("LMC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakPosition {
+            get {
+                return this.PeakPositionField;
+            }
+            set {
+                if ((this.PeakPositionField.Equals(value) != true)) {
+                    this.PeakPositionField = value;
+                    this.RaisePropertyChanged("PeakPosition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakValue {
+            get {
+                return this.PeakValueField;
+            }
+            set {
+                if ((this.PeakValueField.Equals(value) != true)) {
+                    this.PeakValueField = value;
+                    this.RaisePropertyChanged("PeakValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlignmentAngleTuningResponse", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Responses")]
+    [System.SerializableAttribute()]
+    public partial class AlignmentAngleTuningResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AxisLinearField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AxisRotatingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakPosition1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakPosition2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakValue1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakValue2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PredictedAngleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AxisLinear {
+            get {
+                return this.AxisLinearField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AxisLinearField, value) != true)) {
+                    this.AxisLinearField = value;
+                    this.RaisePropertyChanged("AxisLinear");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AxisRotating {
+            get {
+                return this.AxisRotatingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AxisRotatingField, value) != true)) {
+                    this.AxisRotatingField = value;
+                    this.RaisePropertyChanged("AxisRotating");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakPosition1 {
+            get {
+                return this.PeakPosition1Field;
+            }
+            set {
+                if ((this.PeakPosition1Field.Equals(value) != true)) {
+                    this.PeakPosition1Field = value;
+                    this.RaisePropertyChanged("PeakPosition1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakPosition2 {
+            get {
+                return this.PeakPosition2Field;
+            }
+            set {
+                if ((this.PeakPosition2Field.Equals(value) != true)) {
+                    this.PeakPosition2Field = value;
+                    this.RaisePropertyChanged("PeakPosition2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakValue1 {
+            get {
+                return this.PeakValue1Field;
+            }
+            set {
+                if ((this.PeakValue1Field.Equals(value) != true)) {
+                    this.PeakValue1Field = value;
+                    this.RaisePropertyChanged("PeakValue1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakValue2 {
+            get {
+                return this.PeakValue2Field;
+            }
+            set {
+                if ((this.PeakValue2Field.Equals(value) != true)) {
+                    this.PeakValue2Field = value;
+                    this.RaisePropertyChanged("PeakValue2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PredictedAngle {
+            get {
+                return this.PredictedAngleField;
+            }
+            set {
+                if ((this.PredictedAngleField.Equals(value) != true)) {
+                    this.PredictedAngleField = value;
+                    this.RaisePropertyChanged("PredictedAngle");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlignmentCentralAlignResponse", Namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Responses")]
+    [System.SerializableAttribute()]
+    public partial class AlignmentCentralAlignResponse : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AxisField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LMCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakPosition1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakPosition2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakValue1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PeakValue2Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Axis {
+            get {
+                return this.AxisField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AxisField, value) != true)) {
+                    this.AxisField = value;
+                    this.RaisePropertyChanged("Axis");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LMC {
+            get {
+                return this.LMCField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LMCField, value) != true)) {
+                    this.LMCField = value;
+                    this.RaisePropertyChanged("LMC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakPosition1 {
+            get {
+                return this.PeakPosition1Field;
+            }
+            set {
+                if ((this.PeakPosition1Field.Equals(value) != true)) {
+                    this.PeakPosition1Field = value;
+                    this.RaisePropertyChanged("PeakPosition1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakPosition2 {
+            get {
+                return this.PeakPosition2Field;
+            }
+            set {
+                if ((this.PeakPosition2Field.Equals(value) != true)) {
+                    this.PeakPosition2Field = value;
+                    this.RaisePropertyChanged("PeakPosition2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakValue1 {
+            get {
+                return this.PeakValue1Field;
+            }
+            set {
+                if ((this.PeakValue1Field.Equals(value) != true)) {
+                    this.PeakValue1Field = value;
+                    this.RaisePropertyChanged("PeakValue1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double PeakValue2 {
+            get {
+                return this.PeakValue2Field;
+            }
+            set {
+                if ((this.PeakValue2Field.Equals(value) != true)) {
+                    this.PeakValue2Field = value;
+                    this.RaisePropertyChanged("PeakValue2");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -107,17 +920,111 @@ namespace UserScript.Service {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_LogWarn", ReplyAction="http://tempuri.org/ISystemService/__SSC_LogWarnResponse")]
         System.Threading.Tasks.Task @__SSC_LogWarnAsync(string Message);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowMessageBox", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowMessageBoxResponse")]
+        void @__SSC_ShowMessageBox(string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowMessageBox", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowMessageBoxResponse")]
+        System.Threading.Tasks.Task @__SSC_ShowMessageBoxAsync(string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowWarningMessageBox", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowWarningMessageBoxResponse")]
+        void @__SSC_ShowWarningMessageBox(string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowWarningMessageBox", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowWarningMessageBoxResponse")]
+        System.Threading.Tasks.Task @__SSC_ShowWarningMessageBoxAsync(string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowErrorMessageBox", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowErrorMessageBoxResponse")]
+        void @__SSC_ShowErrorMessageBox(string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowErrorMessageBox", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowErrorMessageBoxResponse")]
+        System.Threading.Tasks.Task @__SSC_ShowErrorMessageBoxAsync(string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowYesNoMessageBox", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowYesNoMessageBoxResponse")]
+        bool @__SSC_ShowYesNoMessageBox(string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowYesNoMessageBox", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowYesNoMessageBoxResponse")]
+        System.Threading.Tasks.Task<bool> @__SSC_ShowYesNoMessageBoxAsync(string Message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowImage", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowImageResponse")]
+        void @__SSC_ShowImage(System.Drawing.Bitmap Image);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowImage", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowImageResponse")]
+        System.Threading.Tasks.Task @__SSC_ShowImageAsync(System.Drawing.Bitmap Image);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_SwitchTriColorLight", ReplyAction="http://tempuri.org/ISystemService/__SSC_SwitchTriColorLightResponse")]
+        void @__SSC_SwitchTriColorLight(UserScript.Service.SSC_TriColorLightOptions Option);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_SwitchTriColorLight", ReplyAction="http://tempuri.org/ISystemService/__SSC_SwitchTriColorLightResponse")]
+        System.Threading.Tasks.Task @__SSC_SwitchTriColorLightAsync(UserScript.Service.SSC_TriColorLightOptions Option);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_Connect", ReplyAction="http://tempuri.org/ISystemService/__SSC_ConnectResponse")]
         void @__SSC_Connect();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_Connect", ReplyAction="http://tempuri.org/ISystemService/__SSC_ConnectResponse")]
         System.Threading.Tasks.Task @__SSC_ConnectAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_Disonnect", ReplyAction="http://tempuri.org/ISystemService/__SSC_DisonnectResponse")]
-        void @__SSC_Disonnect();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_Disconnect", ReplyAction="http://tempuri.org/ISystemService/__SSC_DisconnectResponse")]
+        void @__SSC_Disconnect();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_Disonnect", ReplyAction="http://tempuri.org/ISystemService/__SSC_DisonnectResponse")]
-        System.Threading.Tasks.Task @__SSC_DisonnectAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_Disconnect", ReplyAction="http://tempuri.org/ISystemService/__SSC_DisconnectResponse")]
+        System.Threading.Tasks.Task @__SSC_DisconnectAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_WriteVariable", ReplyAction="http://tempuri.org/ISystemService/__SSC_WriteVariableResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_TriColorLightOptions))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PresetPositionInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PresetPositionInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.ReadPresetPositionResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentAreaScanResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentNDResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.Alignment1DResponse[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.Alignment1DResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentAngleTuningResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentCentralAlignResponse))]
+        void @__SSC_WriteVariable(string Name, object Value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_WriteVariable", ReplyAction="http://tempuri.org/ISystemService/__SSC_WriteVariableResponse")]
+        System.Threading.Tasks.Task @__SSC_WriteVariableAsync(string Name, object Value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ReadVariable", ReplyAction="http://tempuri.org/ISystemService/__SSC_ReadVariableResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_TriColorLightOptions))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PresetPositionInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PresetPositionInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.ReadPresetPositionResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentAreaScanResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentNDResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.Alignment1DResponse[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.Alignment1DResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentAngleTuningResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentCentralAlignResponse))]
+        object @__SSC_ReadVariable(string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ReadVariable", ReplyAction="http://tempuri.org/ISystemService/__SSC_ReadVariableResponse")]
+        System.Threading.Tasks.Task<object> @__SSC_ReadVariableAsync(string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_SavePosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_SavePositionResponse")]
+        void @__SSC_SavePosition(string ProfileName, string Aligner, UserScript.Service.SSC_PresetPositionInfo[] PositionInfo, bool IsFastMoveMode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_SavePosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_SavePositionResponse")]
+        System.Threading.Tasks.Task @__SSC_SavePositionAsync(string ProfileName, string Aligner, UserScript.Service.SSC_PresetPositionInfo[] PositionInfo, bool IsFastMoveMode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ReadPresetPosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_ReadPresetPositionResponse")]
+        UserScript.Service.ReadPresetPositionResponse @__SSC_ReadPresetPosition(string LMC, string ProfileName, string Axis);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ReadPresetPosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_ReadPresetPositionResponse")]
+        System.Threading.Tasks.Task<UserScript.Service.ReadPresetPositionResponse> @__SSC_ReadPresetPositionAsync(string LMC, string ProfileName, string Axis);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_SequenceStop", ReplyAction="http://tempuri.org/ISystemService/__SSC_SequenceStopResponse")]
         void @__SSC_SequenceStop();
@@ -137,11 +1044,17 @@ namespace UserScript.Service {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_MoveAxis", ReplyAction="http://tempuri.org/ISystemService/__SSC_MoveAxisResponse")]
         System.Threading.Tasks.Task @__SSC_MoveAxisAsync(string Aligner, string Axis, UserScript.Service.SSC_MoveMode Mode, int Speed, double Distance);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_MoveToPresetPosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_MoveToPresetPositionResponse")]
-        void @__SSC_MoveToPresetPosition(string MotionComp, string Profile);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_FastMoveAxis", ReplyAction="http://tempuri.org/ISystemService/__SSC_FastMoveAxisResponse")]
+        void @__SSC_FastMoveAxis(string Aligner, string Axis, UserScript.Service.SSC_MoveMode Mode, int Speed, double Distance);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_FastMoveAxis", ReplyAction="http://tempuri.org/ISystemService/__SSC_FastMoveAxisResponse")]
+        System.Threading.Tasks.Task @__SSC_FastMoveAxisAsync(string Aligner, string Axis, UserScript.Service.SSC_MoveMode Mode, int Speed, double Distance);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_MoveToPresetPosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_MoveToPresetPositionResponse")]
-        System.Threading.Tasks.Task @__SSC_MoveToPresetPositionAsync(string MotionComp, string Profile);
+        void @__SSC_MoveToPresetPosition(string Aligner, string Profile);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_MoveToPresetPosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_MoveToPresetPositionResponse")]
+        System.Threading.Tasks.Task @__SSC_MoveToPresetPositionAsync(string Aligner, string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_GetAbsPosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_GetAbsPositionResponse")]
         double @__SSC_GetAbsPosition(string Aligner, string Axis);
@@ -149,11 +1062,58 @@ namespace UserScript.Service {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_GetAbsPosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_GetAbsPositionResponse")]
         System.Threading.Tasks.Task<double> @__SSC_GetAbsPositionAsync(string Aligner, string Axis);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowImage", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowImageResponse")]
-        void @__SSC_ShowImage(System.Drawing.Bitmap Image);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_GetRelPosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_GetRelPositionResponse")]
+        double @__SSC_GetRelPosition(string Aligner, string Axis);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ShowImage", ReplyAction="http://tempuri.org/ISystemService/__SSC_ShowImageResponse")]
-        System.Threading.Tasks.Task @__SSC_ShowImageAsync(System.Drawing.Bitmap Image);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_GetRelPosition", ReplyAction="http://tempuri.org/ISystemService/__SSC_GetRelPositionResponse")]
+        System.Threading.Tasks.Task<double> @__SSC_GetRelPositionAsync(string Aligner, string Axis);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_AutoTouch", ReplyAction="http://tempuri.org/ISystemService/__SSC_AutoTouchResponse")]
+        void @__SSC_AutoTouch(string Aligner, string Axis, int Speed, double MaxDistance, string CSS, uint Threshold);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_AutoTouch", ReplyAction="http://tempuri.org/ISystemService/__SSC_AutoTouchResponse")]
+        System.Threading.Tasks.Task @__SSC_AutoTouchAsync(string Aligner, string Axis, int Speed, double MaxDistance, string CSS, uint Threshold);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByInputIO", ReplyAction="http://tempuri.org/ISystemService/__SSC_AutoTouchByInputIOResponse")]
+        void @__SSC_AutoTouchByInputIO(string Aligner, string Axis, int Speed, double MaxDistance, string IO, UserScript.Service.SSC_IOStatusEnum ActivateStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByInputIO", ReplyAction="http://tempuri.org/ISystemService/__SSC_AutoTouchByInputIOResponse")]
+        System.Threading.Tasks.Task @__SSC_AutoTouchByInputIOAsync(string Aligner, string Axis, int Speed, double MaxDistance, string IO, UserScript.Service.SSC_IOStatusEnum ActivateStatus);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_EquipmentPluginControl", ReplyAction="http://tempuri.org/ISystemService/__SSC_EquipmentPluginControlResponse")]
+        void @__SSC_EquipmentPluginControl(string PluginName, string Param);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_EquipmentPluginControl", ReplyAction="http://tempuri.org/ISystemService/__SSC_EquipmentPluginControlResponse")]
+        System.Threading.Tasks.Task @__SSC_EquipmentPluginControlAsync(string PluginName, string Param);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_EquipmentPluginExecute", ReplyAction="http://tempuri.org/ISystemService/__SSC_EquipmentPluginExecuteResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_TriColorLightOptions))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PresetPositionInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PresetPositionInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.ReadPresetPositionResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentAreaScanResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentNDResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.Alignment1DResponse[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.Alignment1DResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentAngleTuningResponse))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.AlignmentCentralAlignResponse))]
+        object @__SSC_EquipmentPluginExecute(string PluginName, string Param);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_EquipmentPluginExecute", ReplyAction="http://tempuri.org/ISystemService/__SSC_EquipmentPluginExecuteResponse")]
+        System.Threading.Tasks.Task<object> @__SSC_EquipmentPluginExecuteAsync(string PluginName, string Param);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_EquipmentPluginWait", ReplyAction="http://tempuri.org/ISystemService/__SSC_EquipmentPluginWaitResponse")]
+        void @__SSC_EquipmentPluginWait(string PluginName, int TimeoutMillisec);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_EquipmentPluginWait", ReplyAction="http://tempuri.org/ISystemService/__SSC_EquipmentPluginWaitResponse")]
+        System.Threading.Tasks.Task @__SSC_EquipmentPluginWaitAsync(string PluginName, int TimeoutMillisec);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_ReadIO", ReplyAction="http://tempuri.org/ISystemService/__SSC_ReadIOResponse")]
         UserScript.Service.SSC_IOStatusEnum @__SSC_ReadIO(string IO, UserScript.Service.SSC_IOTypeEnum IOType);
@@ -168,121 +1128,82 @@ namespace UserScript.Service {
         System.Threading.Tasks.Task @__SSC_WriteIOAsync(string IO, UserScript.Service.SSC_IOStatusEnum Status);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoBlindSearch", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoBlindSearchResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
-        object @__SSC_DoBlindSearch(string Profile);
+        UserScript.Service.AlignmentAreaScanResponse @__SSC_DoBlindSearch(string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoBlindSearch", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoBlindSearchResponse")]
-        System.Threading.Tasks.Task<object> @__SSC_DoBlindSearchAsync(string Profile);
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentAreaScanResponse> @__SSC_DoBlindSearchAsync(string Profile);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/DoBlindSearchWithParam", ReplyAction="http://tempuri.org/ISystemService/DoBlindSearchWithParamResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
-        object DoBlindSearchWithParam(string Aligner, string HorizontalAxis, string VerticalAxis, double Interval, double Range, int Speed, int AnalogCaptureChannel);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoBlindSearchWithParam", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoBlindSearchWithParamResponse")]
+        UserScript.Service.AlignmentAreaScanResponse @__SSC_DoBlindSearchWithParam(string Aligner, string HorizontalAxis, string VerticalAxis, double Interval, double Range, int Speed, int AnalogCaptureChannel);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/DoBlindSearchWithParam", ReplyAction="http://tempuri.org/ISystemService/DoBlindSearchWithParamResponse")]
-        System.Threading.Tasks.Task<object> DoBlindSearchWithParamAsync(string Aligner, string HorizontalAxis, string VerticalAxis, double Interval, double Range, int Speed, int AnalogCaptureChannel);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoBlindSearchWithParam", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoBlindSearchWithParamResponse")]
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentAreaScanResponse> @__SSC_DoBlindSearchWithParamAsync(string Aligner, string HorizontalAxis, string VerticalAxis, double Interval, double Range, int Speed, int AnalogCaptureChannel);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFast1D", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFast1DResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
-        object @__SSC_DoFast1D(string Aligner, string Axis, double Interval, double Range, int Speed);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoRectAreaScan", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoRectAreaScanResponse")]
+        UserScript.Service.AlignmentAreaScanResponse @__SSC_DoRectAreaScan(string Profile);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoRectAreaScan", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoRectAreaScanResponse")]
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentAreaScanResponse> @__SSC_DoRectAreaScanAsync(string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFast1D", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFast1DResponse")]
-        System.Threading.Tasks.Task<object> @__SSC_DoFast1DAsync(string Aligner, string Axis, double Interval, double Range, int Speed);
+        UserScript.Service.AlignmentNDResponse @__SSC_DoFast1D(string Aligner, string Axis, double Interval, double Range, int Speed, int AnalogCaptureChannel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFast1D", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFast1DResponse")]
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentNDResponse> @__SSC_DoFast1DAsync(string Aligner, string Axis, double Interval, double Range, int Speed, int AnalogCaptureChannel);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFastND", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFastNDResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
-        object @__SSC_DoFastND(string Profile);
+        UserScript.Service.AlignmentNDResponse @__SSC_DoFastND(string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFastND", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFastNDResponse")]
-        System.Threading.Tasks.Task<object> @__SSC_DoFastNDAsync(string Profile);
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentNDResponse> @__SSC_DoFastNDAsync(string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFastAngleTuning", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFastAngleTuningResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
-        object @__SSC_DoFastAngleTuning(string Profile);
+        UserScript.Service.AlignmentAngleTuningResponse @__SSC_DoFastAngleTuning(string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFastAngleTuning", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFastAngleTuningResponse")]
-        System.Threading.Tasks.Task<object> @__SSC_DoFastAngleTuningAsync(string Profile);
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentAngleTuningResponse> @__SSC_DoFastAngleTuningAsync(string Profile);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/DoFastAngleTuningWithParam", ReplyAction="http://tempuri.org/ISystemService/DoFastAngleTuningWithParamResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
-        object DoFastAngleTuningWithParam(string Aligner, string LinearAxis, double LinearInterval, double LinearRange, int Speed, double Pitch, int AnalogCaptureChannel1, int AnalogCaptureChannel2, string RotatingAxis, double TuningFactor, int RotatingSpeed);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFastCentralAlign", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFastCentralAlignResponse")]
+        UserScript.Service.AlignmentCentralAlignResponse @__SSC_DoFastCentralAlign(string Profile);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/DoFastAngleTuningWithParam", ReplyAction="http://tempuri.org/ISystemService/DoFastAngleTuningWithParamResponse")]
-        System.Threading.Tasks.Task<object> DoFastAngleTuningWithParamAsync(string Aligner, string LinearAxis, double LinearInterval, double LinearRange, int Speed, double Pitch, int AnalogCaptureChannel1, int AnalogCaptureChannel2, string RotatingAxis, double TuningFactor, int RotatingSpeed);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFastCentralAlign", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFastCentralAlignResponse")]
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentCentralAlignResponse> @__SSC_DoFastCentralAlignAsync(string Profile);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoProfile1D", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoProfile1DResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
-        object @__SSC_DoProfile1D(string Aligner, string Axis, double Interval, double Range, int Speed);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFastAngleTuningWithParam", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFastAngleTuningWithParamResponse")]
+        UserScript.Service.AlignmentAngleTuningResponse @__SSC_DoFastAngleTuningWithParam(string Aligner, string LinearAxis, double LinearInterval, double LinearRange, int Speed, double Pitch, int AnalogCaptureChannel1, int AnalogCaptureChannel2, string RotatingAxis, double TuningFactor, int RotatingSpeed);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoFastAngleTuningWithParam", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoFastAngleTuningWithParamResponse")]
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentAngleTuningResponse> @__SSC_DoFastAngleTuningWithParamAsync(string Aligner, string LinearAxis, double LinearInterval, double LinearRange, int Speed, double Pitch, int AnalogCaptureChannel1, int AnalogCaptureChannel2, string RotatingAxis, double TuningFactor, int RotatingSpeed);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoProfile1D", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoProfile1DResponse")]
-        System.Threading.Tasks.Task<object> @__SSC_DoProfile1DAsync(string Aligner, string Axis, double Interval, double Range, int Speed);
+        UserScript.Service.AlignmentNDResponse @__SSC_DoProfile1D(string Aligner, string Axis, double Interval, double Range, int Speed, string Equipment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoProfile1D", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoProfile1DResponse")]
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentNDResponse> @__SSC_DoProfile1DAsync(string Aligner, string Axis, double Interval, double Range, int Speed, string Equipment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoProfileND", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoProfileNDResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
-        object @__SSC_DoProfileND(string Profile);
+        UserScript.Service.AlignmentNDResponse @__SSC_DoProfileND(string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoProfileND", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoProfileNDResponse")]
-        System.Threading.Tasks.Task<object> @__SSC_DoProfileNDAsync(string Profile);
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentNDResponse> @__SSC_DoProfileNDAsync(string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoAngleTuning", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoAngleTuningResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_MoveMode))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOTypeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_IOStatusEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMUnitEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(UserScript.Service.SSC_PMRangeEnum))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Bitmap))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Drawing.Image))]
-        object @__SSC_DoAngleTuning(string Profile);
+        UserScript.Service.AlignmentAngleTuningResponse @__SSC_DoAngleTuning(string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoAngleTuning", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoAngleTuningResponse")]
-        System.Threading.Tasks.Task<object> @__SSC_DoAngleTuningAsync(string Profile);
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentAngleTuningResponse> @__SSC_DoAngleTuningAsync(string Profile);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoCentralAlign", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoCentralAlignResponse")]
+        UserScript.Service.AlignmentCentralAlignResponse @__SSC_DoCentralAlign(string Profile);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoCentralAlign", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoCentralAlignResponse")]
+        System.Threading.Tasks.Task<UserScript.Service.AlignmentCentralAlignResponse> @__SSC_DoCentralAlignAsync(string Profile);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoHillClimb", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoHillClimbResponse")]
+        void @__SSC_DoHillClimb(string Profile);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_DoHillClimb", ReplyAction="http://tempuri.org/ISystemService/__SSC_DoHillClimbResponse")]
+        System.Threading.Tasks.Task @__SSC_DoHillClimbAsync(string Profile);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISystemService/__SSC_Powermeter_SetUnit", ReplyAction="http://tempuri.org/ISystemService/__SSC_Powermeter_SetUnitResponse")]
         void @__SSC_Powermeter_SetUnit(string Caption, UserScript.Service.SSC_PMUnitEnum Unit);
@@ -372,6 +1293,54 @@ namespace UserScript.Service {
             return base.Channel.@__SSC_LogWarnAsync(Message);
         }
         
+        public void @__SSC_ShowMessageBox(string Message) {
+            base.Channel.@__SSC_ShowMessageBox(Message);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_ShowMessageBoxAsync(string Message) {
+            return base.Channel.@__SSC_ShowMessageBoxAsync(Message);
+        }
+        
+        public void @__SSC_ShowWarningMessageBox(string Message) {
+            base.Channel.@__SSC_ShowWarningMessageBox(Message);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_ShowWarningMessageBoxAsync(string Message) {
+            return base.Channel.@__SSC_ShowWarningMessageBoxAsync(Message);
+        }
+        
+        public void @__SSC_ShowErrorMessageBox(string Message) {
+            base.Channel.@__SSC_ShowErrorMessageBox(Message);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_ShowErrorMessageBoxAsync(string Message) {
+            return base.Channel.@__SSC_ShowErrorMessageBoxAsync(Message);
+        }
+        
+        public bool @__SSC_ShowYesNoMessageBox(string Message) {
+            return base.Channel.@__SSC_ShowYesNoMessageBox(Message);
+        }
+        
+        public System.Threading.Tasks.Task<bool> @__SSC_ShowYesNoMessageBoxAsync(string Message) {
+            return base.Channel.@__SSC_ShowYesNoMessageBoxAsync(Message);
+        }
+        
+        public void @__SSC_ShowImage(System.Drawing.Bitmap Image) {
+            base.Channel.@__SSC_ShowImage(Image);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_ShowImageAsync(System.Drawing.Bitmap Image) {
+            return base.Channel.@__SSC_ShowImageAsync(Image);
+        }
+        
+        public void @__SSC_SwitchTriColorLight(UserScript.Service.SSC_TriColorLightOptions Option) {
+            base.Channel.@__SSC_SwitchTriColorLight(Option);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_SwitchTriColorLightAsync(UserScript.Service.SSC_TriColorLightOptions Option) {
+            return base.Channel.@__SSC_SwitchTriColorLightAsync(Option);
+        }
+        
         public void @__SSC_Connect() {
             base.Channel.@__SSC_Connect();
         }
@@ -380,12 +1349,44 @@ namespace UserScript.Service {
             return base.Channel.@__SSC_ConnectAsync();
         }
         
-        public void @__SSC_Disonnect() {
-            base.Channel.@__SSC_Disonnect();
+        public void @__SSC_Disconnect() {
+            base.Channel.@__SSC_Disconnect();
         }
         
-        public System.Threading.Tasks.Task @__SSC_DisonnectAsync() {
-            return base.Channel.@__SSC_DisonnectAsync();
+        public System.Threading.Tasks.Task @__SSC_DisconnectAsync() {
+            return base.Channel.@__SSC_DisconnectAsync();
+        }
+        
+        public void @__SSC_WriteVariable(string Name, object Value) {
+            base.Channel.@__SSC_WriteVariable(Name, Value);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_WriteVariableAsync(string Name, object Value) {
+            return base.Channel.@__SSC_WriteVariableAsync(Name, Value);
+        }
+        
+        public object @__SSC_ReadVariable(string Name) {
+            return base.Channel.@__SSC_ReadVariable(Name);
+        }
+        
+        public System.Threading.Tasks.Task<object> @__SSC_ReadVariableAsync(string Name) {
+            return base.Channel.@__SSC_ReadVariableAsync(Name);
+        }
+        
+        public void @__SSC_SavePosition(string ProfileName, string Aligner, UserScript.Service.SSC_PresetPositionInfo[] PositionInfo, bool IsFastMoveMode) {
+            base.Channel.@__SSC_SavePosition(ProfileName, Aligner, PositionInfo, IsFastMoveMode);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_SavePositionAsync(string ProfileName, string Aligner, UserScript.Service.SSC_PresetPositionInfo[] PositionInfo, bool IsFastMoveMode) {
+            return base.Channel.@__SSC_SavePositionAsync(ProfileName, Aligner, PositionInfo, IsFastMoveMode);
+        }
+        
+        public UserScript.Service.ReadPresetPositionResponse @__SSC_ReadPresetPosition(string LMC, string ProfileName, string Axis) {
+            return base.Channel.@__SSC_ReadPresetPosition(LMC, ProfileName, Axis);
+        }
+        
+        public System.Threading.Tasks.Task<UserScript.Service.ReadPresetPositionResponse> @__SSC_ReadPresetPositionAsync(string LMC, string ProfileName, string Axis) {
+            return base.Channel.@__SSC_ReadPresetPositionAsync(LMC, ProfileName, Axis);
         }
         
         public void @__SSC_SequenceStop() {
@@ -412,12 +1413,20 @@ namespace UserScript.Service {
             return base.Channel.@__SSC_MoveAxisAsync(Aligner, Axis, Mode, Speed, Distance);
         }
         
-        public void @__SSC_MoveToPresetPosition(string MotionComp, string Profile) {
-            base.Channel.@__SSC_MoveToPresetPosition(MotionComp, Profile);
+        public void @__SSC_FastMoveAxis(string Aligner, string Axis, UserScript.Service.SSC_MoveMode Mode, int Speed, double Distance) {
+            base.Channel.@__SSC_FastMoveAxis(Aligner, Axis, Mode, Speed, Distance);
         }
         
-        public System.Threading.Tasks.Task @__SSC_MoveToPresetPositionAsync(string MotionComp, string Profile) {
-            return base.Channel.@__SSC_MoveToPresetPositionAsync(MotionComp, Profile);
+        public System.Threading.Tasks.Task @__SSC_FastMoveAxisAsync(string Aligner, string Axis, UserScript.Service.SSC_MoveMode Mode, int Speed, double Distance) {
+            return base.Channel.@__SSC_FastMoveAxisAsync(Aligner, Axis, Mode, Speed, Distance);
+        }
+        
+        public void @__SSC_MoveToPresetPosition(string Aligner, string Profile) {
+            base.Channel.@__SSC_MoveToPresetPosition(Aligner, Profile);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_MoveToPresetPositionAsync(string Aligner, string Profile) {
+            return base.Channel.@__SSC_MoveToPresetPositionAsync(Aligner, Profile);
         }
         
         public double @__SSC_GetAbsPosition(string Aligner, string Axis) {
@@ -428,12 +1437,52 @@ namespace UserScript.Service {
             return base.Channel.@__SSC_GetAbsPositionAsync(Aligner, Axis);
         }
         
-        public void @__SSC_ShowImage(System.Drawing.Bitmap Image) {
-            base.Channel.@__SSC_ShowImage(Image);
+        public double @__SSC_GetRelPosition(string Aligner, string Axis) {
+            return base.Channel.@__SSC_GetRelPosition(Aligner, Axis);
         }
         
-        public System.Threading.Tasks.Task @__SSC_ShowImageAsync(System.Drawing.Bitmap Image) {
-            return base.Channel.@__SSC_ShowImageAsync(Image);
+        public System.Threading.Tasks.Task<double> @__SSC_GetRelPositionAsync(string Aligner, string Axis) {
+            return base.Channel.@__SSC_GetRelPositionAsync(Aligner, Axis);
+        }
+        
+        public void @__SSC_AutoTouch(string Aligner, string Axis, int Speed, double MaxDistance, string CSS, uint Threshold) {
+            base.Channel.@__SSC_AutoTouch(Aligner, Axis, Speed, MaxDistance, CSS, Threshold);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_AutoTouchAsync(string Aligner, string Axis, int Speed, double MaxDistance, string CSS, uint Threshold) {
+            return base.Channel.@__SSC_AutoTouchAsync(Aligner, Axis, Speed, MaxDistance, CSS, Threshold);
+        }
+        
+        public void @__SSC_AutoTouchByInputIO(string Aligner, string Axis, int Speed, double MaxDistance, string IO, UserScript.Service.SSC_IOStatusEnum ActivateStatus) {
+            base.Channel.@__SSC_AutoTouchByInputIO(Aligner, Axis, Speed, MaxDistance, IO, ActivateStatus);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_AutoTouchByInputIOAsync(string Aligner, string Axis, int Speed, double MaxDistance, string IO, UserScript.Service.SSC_IOStatusEnum ActivateStatus) {
+            return base.Channel.@__SSC_AutoTouchByInputIOAsync(Aligner, Axis, Speed, MaxDistance, IO, ActivateStatus);
+        }
+        
+        public void @__SSC_EquipmentPluginControl(string PluginName, string Param) {
+            base.Channel.@__SSC_EquipmentPluginControl(PluginName, Param);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_EquipmentPluginControlAsync(string PluginName, string Param) {
+            return base.Channel.@__SSC_EquipmentPluginControlAsync(PluginName, Param);
+        }
+        
+        public object @__SSC_EquipmentPluginExecute(string PluginName, string Param) {
+            return base.Channel.@__SSC_EquipmentPluginExecute(PluginName, Param);
+        }
+        
+        public System.Threading.Tasks.Task<object> @__SSC_EquipmentPluginExecuteAsync(string PluginName, string Param) {
+            return base.Channel.@__SSC_EquipmentPluginExecuteAsync(PluginName, Param);
+        }
+        
+        public void @__SSC_EquipmentPluginWait(string PluginName, int TimeoutMillisec) {
+            base.Channel.@__SSC_EquipmentPluginWait(PluginName, TimeoutMillisec);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_EquipmentPluginWaitAsync(string PluginName, int TimeoutMillisec) {
+            return base.Channel.@__SSC_EquipmentPluginWaitAsync(PluginName, TimeoutMillisec);
         }
         
         public UserScript.Service.SSC_IOStatusEnum @__SSC_ReadIO(string IO, UserScript.Service.SSC_IOTypeEnum IOType) {
@@ -452,76 +1501,108 @@ namespace UserScript.Service {
             return base.Channel.@__SSC_WriteIOAsync(IO, Status);
         }
         
-        public object @__SSC_DoBlindSearch(string Profile) {
+        public UserScript.Service.AlignmentAreaScanResponse @__SSC_DoBlindSearch(string Profile) {
             return base.Channel.@__SSC_DoBlindSearch(Profile);
         }
         
-        public System.Threading.Tasks.Task<object> @__SSC_DoBlindSearchAsync(string Profile) {
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentAreaScanResponse> @__SSC_DoBlindSearchAsync(string Profile) {
             return base.Channel.@__SSC_DoBlindSearchAsync(Profile);
         }
         
-        public object DoBlindSearchWithParam(string Aligner, string HorizontalAxis, string VerticalAxis, double Interval, double Range, int Speed, int AnalogCaptureChannel) {
-            return base.Channel.DoBlindSearchWithParam(Aligner, HorizontalAxis, VerticalAxis, Interval, Range, Speed, AnalogCaptureChannel);
+        public UserScript.Service.AlignmentAreaScanResponse @__SSC_DoBlindSearchWithParam(string Aligner, string HorizontalAxis, string VerticalAxis, double Interval, double Range, int Speed, int AnalogCaptureChannel) {
+            return base.Channel.@__SSC_DoBlindSearchWithParam(Aligner, HorizontalAxis, VerticalAxis, Interval, Range, Speed, AnalogCaptureChannel);
         }
         
-        public System.Threading.Tasks.Task<object> DoBlindSearchWithParamAsync(string Aligner, string HorizontalAxis, string VerticalAxis, double Interval, double Range, int Speed, int AnalogCaptureChannel) {
-            return base.Channel.DoBlindSearchWithParamAsync(Aligner, HorizontalAxis, VerticalAxis, Interval, Range, Speed, AnalogCaptureChannel);
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentAreaScanResponse> @__SSC_DoBlindSearchWithParamAsync(string Aligner, string HorizontalAxis, string VerticalAxis, double Interval, double Range, int Speed, int AnalogCaptureChannel) {
+            return base.Channel.@__SSC_DoBlindSearchWithParamAsync(Aligner, HorizontalAxis, VerticalAxis, Interval, Range, Speed, AnalogCaptureChannel);
         }
         
-        public object @__SSC_DoFast1D(string Aligner, string Axis, double Interval, double Range, int Speed) {
-            return base.Channel.@__SSC_DoFast1D(Aligner, Axis, Interval, Range, Speed);
+        public UserScript.Service.AlignmentAreaScanResponse @__SSC_DoRectAreaScan(string Profile) {
+            return base.Channel.@__SSC_DoRectAreaScan(Profile);
         }
         
-        public System.Threading.Tasks.Task<object> @__SSC_DoFast1DAsync(string Aligner, string Axis, double Interval, double Range, int Speed) {
-            return base.Channel.@__SSC_DoFast1DAsync(Aligner, Axis, Interval, Range, Speed);
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentAreaScanResponse> @__SSC_DoRectAreaScanAsync(string Profile) {
+            return base.Channel.@__SSC_DoRectAreaScanAsync(Profile);
         }
         
-        public object @__SSC_DoFastND(string Profile) {
+        public UserScript.Service.AlignmentNDResponse @__SSC_DoFast1D(string Aligner, string Axis, double Interval, double Range, int Speed, int AnalogCaptureChannel) {
+            return base.Channel.@__SSC_DoFast1D(Aligner, Axis, Interval, Range, Speed, AnalogCaptureChannel);
+        }
+        
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentNDResponse> @__SSC_DoFast1DAsync(string Aligner, string Axis, double Interval, double Range, int Speed, int AnalogCaptureChannel) {
+            return base.Channel.@__SSC_DoFast1DAsync(Aligner, Axis, Interval, Range, Speed, AnalogCaptureChannel);
+        }
+        
+        public UserScript.Service.AlignmentNDResponse @__SSC_DoFastND(string Profile) {
             return base.Channel.@__SSC_DoFastND(Profile);
         }
         
-        public System.Threading.Tasks.Task<object> @__SSC_DoFastNDAsync(string Profile) {
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentNDResponse> @__SSC_DoFastNDAsync(string Profile) {
             return base.Channel.@__SSC_DoFastNDAsync(Profile);
         }
         
-        public object @__SSC_DoFastAngleTuning(string Profile) {
+        public UserScript.Service.AlignmentAngleTuningResponse @__SSC_DoFastAngleTuning(string Profile) {
             return base.Channel.@__SSC_DoFastAngleTuning(Profile);
         }
         
-        public System.Threading.Tasks.Task<object> @__SSC_DoFastAngleTuningAsync(string Profile) {
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentAngleTuningResponse> @__SSC_DoFastAngleTuningAsync(string Profile) {
             return base.Channel.@__SSC_DoFastAngleTuningAsync(Profile);
         }
         
-        public object DoFastAngleTuningWithParam(string Aligner, string LinearAxis, double LinearInterval, double LinearRange, int Speed, double Pitch, int AnalogCaptureChannel1, int AnalogCaptureChannel2, string RotatingAxis, double TuningFactor, int RotatingSpeed) {
-            return base.Channel.DoFastAngleTuningWithParam(Aligner, LinearAxis, LinearInterval, LinearRange, Speed, Pitch, AnalogCaptureChannel1, AnalogCaptureChannel2, RotatingAxis, TuningFactor, RotatingSpeed);
+        public UserScript.Service.AlignmentCentralAlignResponse @__SSC_DoFastCentralAlign(string Profile) {
+            return base.Channel.@__SSC_DoFastCentralAlign(Profile);
         }
         
-        public System.Threading.Tasks.Task<object> DoFastAngleTuningWithParamAsync(string Aligner, string LinearAxis, double LinearInterval, double LinearRange, int Speed, double Pitch, int AnalogCaptureChannel1, int AnalogCaptureChannel2, string RotatingAxis, double TuningFactor, int RotatingSpeed) {
-            return base.Channel.DoFastAngleTuningWithParamAsync(Aligner, LinearAxis, LinearInterval, LinearRange, Speed, Pitch, AnalogCaptureChannel1, AnalogCaptureChannel2, RotatingAxis, TuningFactor, RotatingSpeed);
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentCentralAlignResponse> @__SSC_DoFastCentralAlignAsync(string Profile) {
+            return base.Channel.@__SSC_DoFastCentralAlignAsync(Profile);
         }
         
-        public object @__SSC_DoProfile1D(string Aligner, string Axis, double Interval, double Range, int Speed) {
-            return base.Channel.@__SSC_DoProfile1D(Aligner, Axis, Interval, Range, Speed);
+        public UserScript.Service.AlignmentAngleTuningResponse @__SSC_DoFastAngleTuningWithParam(string Aligner, string LinearAxis, double LinearInterval, double LinearRange, int Speed, double Pitch, int AnalogCaptureChannel1, int AnalogCaptureChannel2, string RotatingAxis, double TuningFactor, int RotatingSpeed) {
+            return base.Channel.@__SSC_DoFastAngleTuningWithParam(Aligner, LinearAxis, LinearInterval, LinearRange, Speed, Pitch, AnalogCaptureChannel1, AnalogCaptureChannel2, RotatingAxis, TuningFactor, RotatingSpeed);
         }
         
-        public System.Threading.Tasks.Task<object> @__SSC_DoProfile1DAsync(string Aligner, string Axis, double Interval, double Range, int Speed) {
-            return base.Channel.@__SSC_DoProfile1DAsync(Aligner, Axis, Interval, Range, Speed);
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentAngleTuningResponse> @__SSC_DoFastAngleTuningWithParamAsync(string Aligner, string LinearAxis, double LinearInterval, double LinearRange, int Speed, double Pitch, int AnalogCaptureChannel1, int AnalogCaptureChannel2, string RotatingAxis, double TuningFactor, int RotatingSpeed) {
+            return base.Channel.@__SSC_DoFastAngleTuningWithParamAsync(Aligner, LinearAxis, LinearInterval, LinearRange, Speed, Pitch, AnalogCaptureChannel1, AnalogCaptureChannel2, RotatingAxis, TuningFactor, RotatingSpeed);
         }
         
-        public object @__SSC_DoProfileND(string Profile) {
+        public UserScript.Service.AlignmentNDResponse @__SSC_DoProfile1D(string Aligner, string Axis, double Interval, double Range, int Speed, string Equipment) {
+            return base.Channel.@__SSC_DoProfile1D(Aligner, Axis, Interval, Range, Speed, Equipment);
+        }
+        
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentNDResponse> @__SSC_DoProfile1DAsync(string Aligner, string Axis, double Interval, double Range, int Speed, string Equipment) {
+            return base.Channel.@__SSC_DoProfile1DAsync(Aligner, Axis, Interval, Range, Speed, Equipment);
+        }
+        
+        public UserScript.Service.AlignmentNDResponse @__SSC_DoProfileND(string Profile) {
             return base.Channel.@__SSC_DoProfileND(Profile);
         }
         
-        public System.Threading.Tasks.Task<object> @__SSC_DoProfileNDAsync(string Profile) {
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentNDResponse> @__SSC_DoProfileNDAsync(string Profile) {
             return base.Channel.@__SSC_DoProfileNDAsync(Profile);
         }
         
-        public object @__SSC_DoAngleTuning(string Profile) {
+        public UserScript.Service.AlignmentAngleTuningResponse @__SSC_DoAngleTuning(string Profile) {
             return base.Channel.@__SSC_DoAngleTuning(Profile);
         }
         
-        public System.Threading.Tasks.Task<object> @__SSC_DoAngleTuningAsync(string Profile) {
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentAngleTuningResponse> @__SSC_DoAngleTuningAsync(string Profile) {
             return base.Channel.@__SSC_DoAngleTuningAsync(Profile);
+        }
+        
+        public UserScript.Service.AlignmentCentralAlignResponse @__SSC_DoCentralAlign(string Profile) {
+            return base.Channel.@__SSC_DoCentralAlign(Profile);
+        }
+        
+        public System.Threading.Tasks.Task<UserScript.Service.AlignmentCentralAlignResponse> @__SSC_DoCentralAlignAsync(string Profile) {
+            return base.Channel.@__SSC_DoCentralAlignAsync(Profile);
+        }
+        
+        public void @__SSC_DoHillClimb(string Profile) {
+            base.Channel.@__SSC_DoHillClimb(Profile);
+        }
+        
+        public System.Threading.Tasks.Task @__SSC_DoHillClimbAsync(string Profile) {
+            return base.Channel.@__SSC_DoHillClimbAsync(Profile);
         }
         
         public void @__SSC_Powermeter_SetUnit(string Caption, UserScript.Service.SSC_PMUnitEnum Unit) {

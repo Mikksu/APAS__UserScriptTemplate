@@ -25,8 +25,9 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="39028b4c-2184-4d3c-b86d-a0793837ffd0" SourceId="1" SourceUrl="net.tcp://localhost:15144/APAS/USRCI/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f216527e-5e8c-4e1a-b001-18a4c58e686f" SourceId="1" SourceUrl="net.tcp://localhost:15144/APAS/USRCI/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="0df837fe-9b3b-43fb-9d63-e314ce7e4889" SourceId="1" SourceUrl="net.tcp://localhost:15144/APAS/USRCI/mex" />
-    <MetadataFile FileName="SystemServiceContract.Core.xsd" MetadataType="Schema" ID="9597e558-2007-44d6-82cd-92cc35a9eb7f" SourceId="1" SourceUrl="net.tcp://localhost:15144/APAS/USRCI/mex" />
     <MetadataFile FileName="System.Drawing.xsd" MetadataType="Schema" ID="f969946d-45d8-470e-bbbe-889aa91b835d" SourceId="1" SourceUrl="net.tcp://localhost:15144/APAS/USRCI/mex" />
+    <MetadataFile FileName="SystemServiceContract.Core.xsd" MetadataType="Schema" ID="9597e558-2007-44d6-82cd-92cc35a9eb7f" SourceId="1" SourceUrl="net.tcp://localhost:15144/APAS/USRCI/mex" />
+    <MetadataFile FileName="SystemServiceContract.Responses.xsd" MetadataType="Schema" ID="a3c78cbb-ec14-43b2-b945-982ac56a5952" SourceId="1" SourceUrl="net.tcp://localhost:15144/APAS/USRCI/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
