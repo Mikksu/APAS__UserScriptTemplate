@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.ServiceModel;
+using System.Threading;
 using CommandLine;
 using UserScript.Service;
 
@@ -85,6 +86,7 @@ namespace UserScript
             {
                 errText = "The service operation timed out. " + timeProblem.Message;
                 Console.Error.WriteLine(errText);
+                isExceptionThrown = true;
             }
             // Catch unrecognized faults. This handler receives exceptions thrown by WCF
             // services when ServiceDebugBehavior.IncludeExceptionDetailInFaults
@@ -95,6 +97,7 @@ namespace UserScript
                           + faultEx.Message
                           + faultEx.StackTrace;
                 Console.Error.WriteLine(errText);
+                isExceptionThrown = true;
             }
             // Standard communication fault handler.
             catch (CommunicationException commProblem)
