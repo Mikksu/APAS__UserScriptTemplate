@@ -104,6 +104,7 @@ namespace UserScript
             {
                 errText = "There was a communication problem. " + commProblem.Message + commProblem.StackTrace;
                 Console.Error.WriteLine(errText);
+                isExceptionThrown = true;
             }
             catch (Exception ex)
             {
