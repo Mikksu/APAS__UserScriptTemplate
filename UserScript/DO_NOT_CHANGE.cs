@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.ServiceModel;
-using System.Threading;
 using CommandLine;
 using UserScript.Service;
 
@@ -19,23 +18,21 @@ namespace UserScript
     /// =================================================================
     /// 
     /// </summary>
-    partial class APAS_UserScript
+    internal partial class UserScript
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var isExceptionThrown = false;
             var errText = "";
 
-            var camClient = new CamRAC.CamRemoteAccessContractClient();
-            var wcfClient = new SystemServiceClient();
-
             try
             {
-                wcfClient.Open();
-                wcfClient.__SSC_Connect();
-
-                // print the script version
-                wcfClient.__SSC_LogInfo($"Script Version: v{Assembly.GetExecutingAssembly().GetName()}");
+                using (var apas = new SystemServiceClient())
+                {
+                    apas.__SSC_Connect();
+                    // print the script version
+                    apas.__SSC_LogInfo($"Script Info: {Assembly.GetExecutingAssembly().GetName()}");
+                }
 
                 var helpWriter = new StringWriter();
                 var parser = new Parser(with =>
@@ -44,17 +41,19 @@ namespace UserScript
                     with.EnableDashDash = true;
                     with.HelpWriter = helpWriter;
                 });
-
+#if ARGS_CONTAINS_CMD // 传入的参数包含 ”命令“, 例如：command --arg1 xxx --arg2 yyy
                 parser.ParseArguments<Command1, Command2>(args)
                     .MapResult(
                         (Command1 opts) =>
                         {
-                            UserProc1(wcfClient, camClient, opts);
+                            UserProc1(opts);
+
                             return 0;
                         },
                         (Command2 opts) =>
                         {
-                            UserProc2(wcfClient, camClient, opts);
+                            UserProc2(opts);
+
                             return 0;
                         },
                         errs =>
@@ -63,23 +62,40 @@ namespace UserScript
                             if (errs.IsHelp() || errs.IsVersion())
                                 myErr = helpWriter.ToString();
                             else
-                            {
                                 myErr = $"启动参数错误。\r\n{helpWriter}";
-                            }
 
                             throw new Exception(myErr);
                         });
 
-                wcfClient.__SSC_Disconnect();
+#else //传入的参数不包含”命令“，例如 --arg1 xxx --arg2 yyy
+                Parser.Default.ParseArguments<StartupArgs>(args)
+                    .WithParsed<StartupArgs>(UserProc)
+                    .WithNotParsed(errs =>
+                    {
+                        var myErr = "";
+                        var enumerable = errs as Error[] ?? errs.ToArray();
+                        if (enumerable.IsHelp() || enumerable.IsVersion())
+                            myErr = helpWriter.ToString();
+                        else
+                            myErr = $"启动参数错误。\r\n{helpWriter}";
+
+                        throw new Exception(myErr);
+                    });
+#endif
+                using (var apas = new SystemServiceClient())
+                {
+                    apas.__SSC_Disconnect();
+                }
             }
             catch (AggregateException ae)
             {
                 var ex = ae.Flatten();
-                ex.InnerExceptions.ToList().ForEach(e =>
-                {
-                    errText = ex.Message;
-                    Console.Error.WriteLine(errText);
-                });
+                ex.InnerExceptions.ToList()
+                    .ForEach(e =>
+                    {
+                        errText = e.Message;
+                        Console.Error.WriteLine(errText);
+                    });
                 isExceptionThrown = true;
             }
             catch (TimeoutException timeProblem)
@@ -91,11 +107,15 @@ namespace UserScript
             // Catch unrecognized faults. This handler receives exceptions thrown by WCF
             // services when ServiceDebugBehavior.IncludeExceptionDetailInFaults
             // is set to true.
+            catch (FaultException<Exception> ex)
+            {
+                errText = "An unknown exception was received. " + ex.Detail.Message;
+                Console.Error.WriteLine(errText);
+                isExceptionThrown = true;
+            }
             catch (FaultException faultEx)
             {
-                errText = "An unknown exception was received. "
-                          + faultEx.Message
-                          + faultEx.StackTrace;
+                errText = "An unknown exception was received. " + faultEx.Message;
                 Console.Error.WriteLine(errText);
                 isExceptionThrown = true;
             }
@@ -114,26 +134,24 @@ namespace UserScript
             }
             finally
             {
-                wcfClient.Abort();
                 if (isExceptionThrown)
-                {
-                    // try to output the error message to the log.
-                    try
-                    {
-                        using (wcfClient = new SystemServiceClient())
+                    /*
+                        // try to output the error message to the log.
+                        try
                         {
-                            wcfClient.__SSC_LogError(errText);
-                            wcfClient.Abort();
+                            using (apasService = new SystemServiceClient())
+                            {
+                                apasService.__SSC_LogError(errText);
+                                apasService.Abort();
+                            }
                         }
-                    }
-                    catch (Exception)
-                    {
-                        // ignore
-                    }
-
+                        catch (Exception)
+                        {
+                            // ignore
+                        }
+                        */
 
                     Environment.ExitCode = -1;
-                }
             }
         }
     }

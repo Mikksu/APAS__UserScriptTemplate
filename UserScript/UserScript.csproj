@@ -8,9 +8,25 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>UserScript</RootNamespace>
     <AssemblyName>UserScript</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -18,7 +34,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;!ARGS_CONTAINS_CMD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -32,8 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommandLine, Version=2.8.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommandLineParser.2.8.0\lib\net461\CommandLine.dll</HintPath>
+    <Reference Include="CommandLine, Version=2.9.1.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Depends\CommandLine.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,12 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandLineOptions.cs" />
-    <Compile Include="Connected Services\CamRAC\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
+    <Compile Include="StartupArgs.cs" />
     <Compile Include="Connected Services\Service\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,14 +79,13 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\CamRAC\service.wsdl" />
-    <None Include="Connected Services\CamRAC\service.xsd">
+    <None Include="Connected Services\Service\APAS.ServiceContract.Wcf.Responses.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\CamRAC\service1.xsd">
+    <None Include="Connected Services\Service\APAS.ServiceContract.Wcf.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\CamRAC\System.Drawing.xsd">
+    <None Include="Connected Services\Service\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Service\service.wsdl" />
@@ -82,15 +93,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Service\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Service\System.Drawing.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Service\SystemServiceContract.Core.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Service\SystemServiceContract.Responses.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Service\UserScript.Service.AlignmentAngleTuningResponse.datasource">
@@ -102,13 +104,13 @@
     <None Include="Connected Services\Service\UserScript.Service.AlignmentCentralAlignResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Service\UserScript.Service.AlignmentNDResponse.datasource">
+    <None Include="Connected Services\Service\UserScript.Service.AlignmentNdResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Service\UserScript.Service.AxisStatusResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Service\UserScript.Service.ReadPresetPositionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Service\UserScript.Service.SSC_IOStatusEnum.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Service\UserScript.Service.SSC_PMRangeEnum.datasource">
@@ -117,7 +119,6 @@
     <None Include="Connected Services\Service\UserScript.Service.SSC_PMUnitEnum.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\Service\configuration91.svcinfo" />
@@ -126,20 +127,24 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\CamRAC\configuration91.svcinfo" />
-    <None Include="Connected Services\CamRAC\configuration.svcinfo" />
-    <None Include="Connected Services\CamRAC\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\CamRAC\" />
     <WCFMetadataStorage Include="Connected Services\Service\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

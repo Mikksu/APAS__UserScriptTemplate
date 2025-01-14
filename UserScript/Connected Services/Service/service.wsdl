@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SystemServiceWcfService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="SystemServiceRemoteApisWrapper" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy wsu:Id="NetTcpBinding_ISystemService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -14,11 +14,23 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Core" />
-      <xsd:import namespace="http://schemas.datacontract.org/2004/07/SystemServiceContract.Responses" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/APAS.ServiceContract.Wcf" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/APAS.ServiceContract.Wcf.Responses" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ISystemService___SSC_Powermeter_ZeroOutput_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_Powermeter_ZeroOutput" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_Powermeter_ZeroOutput_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_Powermeter_ZeroOutputResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_Powermeter_Read_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_Powermeter_Read" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_Powermeter_Read_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_Powermeter_ReadResponse" />
+  </wsdl:message>
   <wsdl:message name="ISystemService___SSC_LogInfo_InputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_LogInfo" />
   </wsdl:message>
@@ -67,11 +79,17 @@
   <wsdl:message name="ISystemService___SSC_ShowImage_OutputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_ShowImageResponse" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_SwitchTriColorLight_InputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_SwitchTriColorLight" />
+  <wsdl:message name="ISystemService___SSC_ChangeSignalTowerLight_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ChangeSignalTowerLight" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_SwitchTriColorLight_OutputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_SwitchTriColorLightResponse" />
+  <wsdl:message name="ISystemService___SSC_ChangeSignalTowerLight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ChangeSignalTowerLightResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_TurnOffSignalTowerBuzzer_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_TurnOffSignalTowerBuzzer" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_TurnOffSignalTowerBuzzer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_TurnOffSignalTowerBuzzerResponse" />
   </wsdl:message>
   <wsdl:message name="ISystemService___SSC_Connect_InputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_Connect" />
@@ -115,6 +133,36 @@
   <wsdl:message name="ISystemService___SSC_SequenceStop_OutputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_SequenceStopResponse" />
   </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetLMUList_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetLMUList" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetLMUList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetLMUListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetAxisList_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetAxisList" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetAxisList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetAxisListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetAxisListInLMU_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetAxisListInLMU" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetAxisListInLMU_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetAxisListInLMUResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetMEQList_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetMEQList" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetMEQList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetMEQListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_Home_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_Home" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_Home_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_HomeResponse" />
+  </wsdl:message>
   <wsdl:message name="ISystemService___SSC_MeasurableDevice_Read_InputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_MeasurableDevice_Read" />
   </wsdl:message>
@@ -126,12 +174,6 @@
   </wsdl:message>
   <wsdl:message name="ISystemService___SSC_MoveAxis_OutputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_MoveAxisResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_FastMoveAxis_InputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_FastMoveAxis" />
-  </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_FastMoveAxis_OutputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_FastMoveAxisResponse" />
   </wsdl:message>
   <wsdl:message name="ISystemService___SSC_MoveToPresetPosition_InputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_MoveToPresetPosition" />
@@ -157,17 +199,65 @@
   <wsdl:message name="ISystemService___SSC_GetRelPosition_OutputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_GetRelPositionResponse" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_AutoTouch_InputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_AutoTouch" />
+  <wsdl:message name="ISystemService___SSC_ServoOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ServoOn" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_AutoTouch_OutputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_AutoTouchResponse" />
+  <wsdl:message name="ISystemService___SSC_ServoOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ServoOnResponse" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_AutoTouchByInputIO_InputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_AutoTouchByInputIO" />
+  <wsdl:message name="ISystemService___SSC_ServoOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ServoOff" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_AutoTouchByInputIO_OutputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_AutoTouchByInputIOResponse" />
+  <wsdl:message name="ISystemService___SSC_ServoOff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ServoOffResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_ResetAxisFault_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ResetAxisFault" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_ResetAxisFault_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ResetAxisFaultResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_MotionStop_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_MotionStop" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_MotionStop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_MotionStopResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_EmergencyStop_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_EmergencyStop" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_EmergencyStop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_EmergencyStopResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetAxisStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetAxisStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetAxisStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetAxisStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetLmuStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetLmuStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_GetLmuStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_GetLmuStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_AutoTouchByMEQ_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_AutoTouchByMEQ" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_AutoTouchByMEQ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_AutoTouchByMEQResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_AutoTouchByAin_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_AutoTouchByAin" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_AutoTouchByAin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_AutoTouchByAinResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_AutoTouchByDin_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_AutoTouchByDin" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_AutoTouchByDin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_AutoTouchByDinResponse" />
   </wsdl:message>
   <wsdl:message name="ISystemService___SSC_CommonPluginExecute_InputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_CommonPluginExecute" />
@@ -193,17 +283,29 @@
   <wsdl:message name="ISystemService___SSC_EquipmentPluginWait_OutputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_EquipmentPluginWaitResponse" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_ReadIO_InputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_ReadIO" />
+  <wsdl:message name="ISystemService___SSC_ReadDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ReadDI" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_ReadIO_OutputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_ReadIOResponse" />
+  <wsdl:message name="ISystemService___SSC_ReadDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ReadDIResponse" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_WriteIO_InputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_WriteIO" />
+  <wsdl:message name="ISystemService___SSC_ReadDO_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ReadDO" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_WriteIO_OutputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_WriteIOResponse" />
+  <wsdl:message name="ISystemService___SSC_ReadDO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_ReadDOResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_WriteDO_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_WriteDO" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_WriteDO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_WriteDOResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_WaitDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_WaitDI" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_WaitDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_WaitDIResponse" />
   </wsdl:message>
   <wsdl:message name="ISystemService___SSC_DoBlindSearch_InputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_DoBlindSearch" />
@@ -222,6 +324,12 @@
   </wsdl:message>
   <wsdl:message name="ISystemService___SSC_DoRectAreaScan_OutputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_DoRectAreaScanResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_DoSlowRectAreaScan_InputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_DoSlowRectAreaScan" />
+  </wsdl:message>
+  <wsdl:message name="ISystemService___SSC_DoSlowRectAreaScan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:__SSC_DoSlowRectAreaScanResponse" />
   </wsdl:message>
   <wsdl:message name="ISystemService___SSC_DoFast1D_InputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_DoFast1D" />
@@ -307,19 +415,15 @@
   <wsdl:message name="ISystemService___SSC_Powermeter_GetRange_OutputMessage">
     <wsdl:part name="parameters" element="tns:__SSC_Powermeter_GetRangeResponse" />
   </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_Powermeter_ZeroOutput_InputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_Powermeter_ZeroOutput" />
-  </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_Powermeter_ZeroOutput_OutputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_Powermeter_ZeroOutputResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_Powermeter_Read_InputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_Powermeter_Read" />
-  </wsdl:message>
-  <wsdl:message name="ISystemService___SSC_Powermeter_Read_OutputMessage">
-    <wsdl:part name="parameters" element="tns:__SSC_Powermeter_ReadResponse" />
-  </wsdl:message>
   <wsdl:portType name="ISystemService">
+    <wsdl:operation name="__SSC_Powermeter_ZeroOutput">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_ZeroOutput" message="tns:ISystemService___SSC_Powermeter_ZeroOutput_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_ZeroOutputResponse" message="tns:ISystemService___SSC_Powermeter_ZeroOutput_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_Powermeter_Read">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_Read" message="tns:ISystemService___SSC_Powermeter_Read_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_ReadResponse" message="tns:ISystemService___SSC_Powermeter_Read_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="__SSC_LogInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_LogInfo" message="tns:ISystemService___SSC_LogInfo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_LogInfoResponse" message="tns:ISystemService___SSC_LogInfo_OutputMessage" />
@@ -352,9 +456,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_ShowImage" message="tns:ISystemService___SSC_ShowImage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_ShowImageResponse" message="tns:ISystemService___SSC_ShowImage_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="__SSC_SwitchTriColorLight">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_SwitchTriColorLight" message="tns:ISystemService___SSC_SwitchTriColorLight_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_SwitchTriColorLightResponse" message="tns:ISystemService___SSC_SwitchTriColorLight_OutputMessage" />
+    <wsdl:operation name="__SSC_ChangeSignalTowerLight">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_ChangeSignalTowerLight" message="tns:ISystemService___SSC_ChangeSignalTowerLight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_ChangeSignalTowerLightResponse" message="tns:ISystemService___SSC_ChangeSignalTowerLight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_TurnOffSignalTowerBuzzer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_TurnOffSignalTowerBuzzer" message="tns:ISystemService___SSC_TurnOffSignalTowerBuzzer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_TurnOffSignalTowerBuzzerResponse" message="tns:ISystemService___SSC_TurnOffSignalTowerBuzzer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="__SSC_Connect">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_Connect" message="tns:ISystemService___SSC_Connect_InputMessage" />
@@ -384,6 +492,26 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_SequenceStop" message="tns:ISystemService___SSC_SequenceStop_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_SequenceStopResponse" message="tns:ISystemService___SSC_SequenceStop_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="__SSC_GetLMUList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetLMUList" message="tns:ISystemService___SSC_GetLMUList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetLMUListResponse" message="tns:ISystemService___SSC_GetLMUList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetAxisList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetAxisList" message="tns:ISystemService___SSC_GetAxisList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetAxisListResponse" message="tns:ISystemService___SSC_GetAxisList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetAxisListInLMU">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetAxisListInLMU" message="tns:ISystemService___SSC_GetAxisListInLMU_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetAxisListInLMUResponse" message="tns:ISystemService___SSC_GetAxisListInLMU_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetMEQList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetMEQList" message="tns:ISystemService___SSC_GetMEQList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetMEQListResponse" message="tns:ISystemService___SSC_GetMEQList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_Home">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_Home" message="tns:ISystemService___SSC_Home_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_HomeResponse" message="tns:ISystemService___SSC_Home_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="__SSC_MeasurableDevice_Read">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_MeasurableDevice_Read" message="tns:ISystemService___SSC_MeasurableDevice_Read_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_MeasurableDevice_ReadResponse" message="tns:ISystemService___SSC_MeasurableDevice_Read_OutputMessage" />
@@ -391,10 +519,6 @@
     <wsdl:operation name="__SSC_MoveAxis">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_MoveAxis" message="tns:ISystemService___SSC_MoveAxis_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_MoveAxisResponse" message="tns:ISystemService___SSC_MoveAxis_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="__SSC_FastMoveAxis">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_FastMoveAxis" message="tns:ISystemService___SSC_FastMoveAxis_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_FastMoveAxisResponse" message="tns:ISystemService___SSC_FastMoveAxis_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="__SSC_MoveToPresetPosition">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_MoveToPresetPosition" message="tns:ISystemService___SSC_MoveToPresetPosition_InputMessage" />
@@ -412,13 +536,45 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetRelPosition" message="tns:ISystemService___SSC_GetRelPosition_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetRelPositionResponse" message="tns:ISystemService___SSC_GetRelPosition_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="__SSC_AutoTouch">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouch" message="tns:ISystemService___SSC_AutoTouch_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouchResponse" message="tns:ISystemService___SSC_AutoTouch_OutputMessage" />
+    <wsdl:operation name="__SSC_ServoOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_ServoOn" message="tns:ISystemService___SSC_ServoOn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_ServoOnResponse" message="tns:ISystemService___SSC_ServoOn_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="__SSC_AutoTouchByInputIO">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByInputIO" message="tns:ISystemService___SSC_AutoTouchByInputIO_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByInputIOResponse" message="tns:ISystemService___SSC_AutoTouchByInputIO_OutputMessage" />
+    <wsdl:operation name="__SSC_ServoOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_ServoOff" message="tns:ISystemService___SSC_ServoOff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_ServoOffResponse" message="tns:ISystemService___SSC_ServoOff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_ResetAxisFault">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_ResetAxisFault" message="tns:ISystemService___SSC_ResetAxisFault_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_ResetAxisFaultResponse" message="tns:ISystemService___SSC_ResetAxisFault_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_MotionStop">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_MotionStop" message="tns:ISystemService___SSC_MotionStop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_MotionStopResponse" message="tns:ISystemService___SSC_MotionStop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_EmergencyStop">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_EmergencyStop" message="tns:ISystemService___SSC_EmergencyStop_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_EmergencyStopResponse" message="tns:ISystemService___SSC_EmergencyStop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetAxisStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetAxisStatus" message="tns:ISystemService___SSC_GetAxisStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetAxisStatusResponse" message="tns:ISystemService___SSC_GetAxisStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetLmuStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetLmuStatus" message="tns:ISystemService___SSC_GetLmuStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_GetLmuStatusResponse" message="tns:ISystemService___SSC_GetLmuStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_AutoTouchByMEQ">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByMEQ" message="tns:ISystemService___SSC_AutoTouchByMEQ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByMEQResponse" message="tns:ISystemService___SSC_AutoTouchByMEQ_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_AutoTouchByAin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByAin" message="tns:ISystemService___SSC_AutoTouchByAin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByAinResponse" message="tns:ISystemService___SSC_AutoTouchByAin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_AutoTouchByDin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByDin" message="tns:ISystemService___SSC_AutoTouchByDin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_AutoTouchByDinResponse" message="tns:ISystemService___SSC_AutoTouchByDin_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="__SSC_CommonPluginExecute">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_CommonPluginExecute" message="tns:ISystemService___SSC_CommonPluginExecute_InputMessage" />
@@ -436,13 +592,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_EquipmentPluginWait" message="tns:ISystemService___SSC_EquipmentPluginWait_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_EquipmentPluginWaitResponse" message="tns:ISystemService___SSC_EquipmentPluginWait_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="__SSC_ReadIO">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_ReadIO" message="tns:ISystemService___SSC_ReadIO_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_ReadIOResponse" message="tns:ISystemService___SSC_ReadIO_OutputMessage" />
+    <wsdl:operation name="__SSC_ReadDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_ReadDI" message="tns:ISystemService___SSC_ReadDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_ReadDIResponse" message="tns:ISystemService___SSC_ReadDI_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="__SSC_WriteIO">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_WriteIO" message="tns:ISystemService___SSC_WriteIO_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_WriteIOResponse" message="tns:ISystemService___SSC_WriteIO_OutputMessage" />
+    <wsdl:operation name="__SSC_ReadDO">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_ReadDO" message="tns:ISystemService___SSC_ReadDO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_ReadDOResponse" message="tns:ISystemService___SSC_ReadDO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_WriteDO">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_WriteDO" message="tns:ISystemService___SSC_WriteDO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_WriteDOResponse" message="tns:ISystemService___SSC_WriteDO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_WaitDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_WaitDI" message="tns:ISystemService___SSC_WaitDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_WaitDIResponse" message="tns:ISystemService___SSC_WaitDI_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="__SSC_DoBlindSearch">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_DoBlindSearch" message="tns:ISystemService___SSC_DoBlindSearch_InputMessage" />
@@ -455,6 +619,10 @@
     <wsdl:operation name="__SSC_DoRectAreaScan">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_DoRectAreaScan" message="tns:ISystemService___SSC_DoRectAreaScan_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_DoRectAreaScanResponse" message="tns:ISystemService___SSC_DoRectAreaScan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_DoSlowRectAreaScan">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_DoSlowRectAreaScan" message="tns:ISystemService___SSC_DoSlowRectAreaScan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_DoSlowRectAreaScanResponse" message="tns:ISystemService___SSC_DoSlowRectAreaScan_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="__SSC_DoFast1D">
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_DoFast1D" message="tns:ISystemService___SSC_DoFast1D_InputMessage" />
@@ -512,19 +680,29 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_GetRange" message="tns:ISystemService___SSC_Powermeter_GetRange_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_GetRangeResponse" message="tns:ISystemService___SSC_Powermeter_GetRange_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="__SSC_Powermeter_ZeroOutput">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_ZeroOutput" message="tns:ISystemService___SSC_Powermeter_ZeroOutput_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_ZeroOutputResponse" message="tns:ISystemService___SSC_Powermeter_ZeroOutput_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="__SSC_Powermeter_Read">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_Read" message="tns:ISystemService___SSC_Powermeter_Read_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISystemService/__SSC_Powermeter_ReadResponse" message="tns:ISystemService___SSC_Powermeter_Read_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_ISystemService" type="tns:ISystemService">
     <wsp:PolicyReference URI="#NetTcpBinding_ISystemService_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="__SSC_Powermeter_ZeroOutput">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_Powermeter_ZeroOutput" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_Powermeter_Read">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_Powermeter_Read" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="__SSC_LogInfo">
       <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_LogInfo" style="document" />
       <wsdl:input>
@@ -597,8 +775,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="__SSC_SwitchTriColorLight">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_SwitchTriColorLight" style="document" />
+    <wsdl:operation name="__SSC_ChangeSignalTowerLight">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_ChangeSignalTowerLight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_TurnOffSignalTowerBuzzer">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_TurnOffSignalTowerBuzzer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -669,6 +856,51 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="__SSC_GetLMUList">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_GetLMUList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetAxisList">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_GetAxisList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetAxisListInLMU">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_GetAxisListInLMU" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetMEQList">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_GetMEQList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_Home">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_Home" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="__SSC_MeasurableDevice_Read">
       <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_MeasurableDevice_Read" style="document" />
       <wsdl:input>
@@ -680,15 +912,6 @@
     </wsdl:operation>
     <wsdl:operation name="__SSC_MoveAxis">
       <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_MoveAxis" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="__SSC_FastMoveAxis">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_FastMoveAxis" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -732,8 +955,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="__SSC_AutoTouch">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_AutoTouch" style="document" />
+    <wsdl:operation name="__SSC_ServoOn">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_ServoOn" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -741,8 +964,80 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="__SSC_AutoTouchByInputIO">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_AutoTouchByInputIO" style="document" />
+    <wsdl:operation name="__SSC_ServoOff">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_ServoOff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_ResetAxisFault">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_ResetAxisFault" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_MotionStop">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_MotionStop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_EmergencyStop">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_EmergencyStop" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetAxisStatus">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_GetAxisStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_GetLmuStatus">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_GetLmuStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_AutoTouchByMEQ">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_AutoTouchByMEQ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_AutoTouchByAin">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_AutoTouchByAin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_AutoTouchByDin">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_AutoTouchByDin" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -786,8 +1081,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="__SSC_ReadIO">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_ReadIO" style="document" />
+    <wsdl:operation name="__SSC_ReadDI">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_ReadDI" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -795,8 +1090,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="__SSC_WriteIO">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_WriteIO" style="document" />
+    <wsdl:operation name="__SSC_ReadDO">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_ReadDO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_WriteDO">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_WriteDO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_WaitDI">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_WaitDI" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -824,6 +1137,15 @@
     </wsdl:operation>
     <wsdl:operation name="__SSC_DoRectAreaScan">
       <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_DoRectAreaScan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="__SSC_DoSlowRectAreaScan">
+      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_DoSlowRectAreaScan" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -957,26 +1279,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="__SSC_Powermeter_ZeroOutput">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_Powermeter_ZeroOutput" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="__SSC_Powermeter_Read">
-      <soap12:operation soapAction="http://tempuri.org/ISystemService/__SSC_Powermeter_Read" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="SystemServiceWcfService">
+  <wsdl:service name="SystemServiceRemoteApisWrapper">
     <wsdl:port name="NetTcpBinding_ISystemService" binding="tns:NetTcpBinding_ISystemService">
       <soap12:address location="net.tcp://localhost:15143/APAS/USRCI" />
       <wsa10:EndpointReference>

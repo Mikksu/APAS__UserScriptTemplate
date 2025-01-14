@@ -2,7 +2,7 @@
 
 namespace UserScript
 {
-
+#if ARGS_CONTAINS_CMD
     [Verb("cmd1", HelpText = "命令1")]
     public class Command1
     {
@@ -35,4 +35,13 @@ namespace UserScript
             HelpText = "参数2")]
         public int Arg2 { get; set; }
     }
+#else
+    public class StartupArgs
+    {
+        [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
+        public bool Verbose { get; set; }
+    }
+
+
+#endif
 }
